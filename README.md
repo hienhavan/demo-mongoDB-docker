@@ -1,26 +1,21 @@
-CRUD - Spring Boot & MongoDB
+# CRUD - Spring Boot & MongoDB
 
-1. Giới thiệu
+## 1. Giới thiệu
 
-CRUD cơ bản để làm việc với MongoDB.
+Dự án này cung cấp các API CRUD cơ bản để làm việc với MongoDB trong Spring Boot.
 
-Các API chính:
+### Các API chính:
+- **POST** `/user` - Thêm người dùng mới.
+- **PUT** `/user/{id}` - Cập nhật thông tin người dùng.
+- **DELETE** `/user/{id}` - Xóa người dùng theo ID.
+- **GET** `/user` - Lấy danh sách người dùng có phân trang.
+- **GET** `/user/{id}` - Lấy thông tin chi tiết của một người dùng theo ID.
 
-POST /user - Thêm người dùng mới.
+## 2. Docker Commands
 
-PUT /user/{id} - Cập nhật thông tin người dùng.
+### 2.1. Docker Compose File (`docker-compose.yml`):
 
-DELETE /user/{id} - Xóa người dùng theo ID.
-
-GET /user - Lấy danh sách người dùng có phân trang.
-
-GET /user/{id} - Lấy thông tin chi tiết của một người dùng theo ID.
-
-
-2. Docker Commands
-
-2.1. Docker Compose File (docker-compose.yml):
-
+```yaml
 version: '3.8'
 
 services:
@@ -46,28 +41,33 @@ volumes:
 networks:
   mongo-network:
     driver: bridge
+```
 
-2.2. Các lệnh Docker cần thiết:
+### 2.2. Các lệnh Docker cần thiết:
 
-Khởi động MongoDB container
-
+#### Khởi động MongoDB container:
+```sh
 docker-compose up -d
+```
 
-Dừng container
-
+#### Dừng container:
+```sh
 docker-compose down
+```
 
-Xây dựng lại container (nếu có thay đổi cấu hình)
-
+#### Xây dựng lại container (nếu có thay đổi cấu hình):
+```sh
 docker-compose up --build
+```
 
-Xóa volume (xóa toàn bộ dữ liệu MongoDB)
-
+#### Xóa volume (xóa toàn bộ dữ liệu MongoDB):
+```sh
 docker-compose down -v
+```
 
-3. Cách chạy ứng dụng Spring Boot
+## 3. Cách chạy ứng dụng Spring Boot
 
+### Chạy ứng dụng bằng Gradle:
+```sh
 ./gradlew bootRun
-
-
-
+```
