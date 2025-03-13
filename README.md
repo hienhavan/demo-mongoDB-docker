@@ -3,7 +3,7 @@
 ## 1. Giới thiệu
 
 Dự án này cung cấp các API CRUD cơ bản để làm việc với MongoDB trong Spring Boot.
-
+Dự án dùng Spring boot 3.5.0-M2, java 23
 ### Các API chính:
 - **POST** `/user` - Thêm người dùng mới.
 - **PUT** `/user/{id}` - Cập nhật thông tin người dùng.
