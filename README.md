@@ -22,10 +22,8 @@ services:
   mongodb:
     image: mongo:latest
     container_name: mongodb-container
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=123456789
-      - MONGO_INITDB_DATABASE=demo
+    env_file:
+      - .env
     ports:
       - "27017:27017"
     volumes:
@@ -34,13 +32,12 @@ services:
       - mongo-network
     command: ["mongod", "--auth"]
 
-volumes:
-  mongodb-data:
-    driver: local
-
 networks:
   mongo-network:
     driver: bridge
+
+volumes:
+  mongodb-data:
 ```
 
 ### 2.2. Các lệnh Docker cần thiết:
